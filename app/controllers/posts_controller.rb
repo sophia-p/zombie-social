@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 	before_action :find_post, only: [:find, :update, :destroy]
 	def index
-		@posts = Post.all
+		@posts = Post.all.order("created_at DESC")
 	end
 
 	def show
@@ -13,7 +13,8 @@ class PostsController < ApplicationController
 
 	def create
 		@zombie = current_user
-		@post = @zombie.posts.new
+		@post = Post.new(post_params)
+		@post.zombie_id = @zombie.id
 		if @post.save
 			redirect_to @zombie
 		else

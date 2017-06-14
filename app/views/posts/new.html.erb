@@ -1,0 +1,16 @@
+
+<%= form_for :post, url:posts_path, authenticity_token:true do |f| %>
+
+ 
+ <%= render 'shared/error_messages' %>
+  <div  class="form-group">
+    
+    <%= f.text_field :content, class:"form-control", placeholder:"Your message goes here" %>
+    <small class="form-text text-muted">You're posting as <%=current_user.username%></small>
+  </div>
+
+ 
+  <div class="form-group">
+    <%= f.submit "Submit", class:"btn btn-primary" %>
+  </div>
+<% end %>
