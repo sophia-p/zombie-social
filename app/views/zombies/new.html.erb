@@ -1,26 +1,33 @@
-<%= form_for :zombie, url:zombies_path do |f| %>
+<div class="col-md-4 col-md-offset-">
+<%= form_for :zombie, url:zombies_path, html:{multipart: true} do |f| %>
 <%= render 'shared/error_messages' %>
-  <p>
+  <div  class="form-group">
     <%= f.label :username %><br>
-    <%= f.text_field :username %>
-  </p>
+    <%= f.text_field :username, class:"form-control", placeholder:"Enter username" %>
+  </div>
  
-  <p>
+  <div class="form-group">
     <%= f.label :email %><br>
-    <%= f.email_field :email %>
-  </p>
+    <%= f.email_field :email, class:"form-control", ariadescribedby:"emailHelp", placeholder:"Enter email" %>
+    <small id="emailHelp" class="form-text text-muted">You're a zombie. We're zombies. We're not telling</small>
+  </div>
 
-   <p>
+   <div class="form-group">
     <%= f.label :password %><br>
-    <%= f.password_field :password %>
-  </p>
+    <%= f.password_field :password, class:"form-control", placeholder:"Password" %>
+  </div>
  
-   <p>
+   <div class="form-group">
     <%= f.label :password_confirmation %><br>
-    <%= f.password_field :password_confirmation %>
-  </p>
+    <%= f.password_field :password_confirmation, class:"form-control", placeholder:"Type Password Again" %>
+  </div>
 
-  <p>
-    <%= f.submit "Register" %>
-  </p>
+  <div class="form-group">
+  	<%= f.file_field :image %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit "Register", class:"btn btn-primary" %>
+  </div>
 <% end %>
+</div>
