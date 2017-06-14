@@ -13,8 +13,12 @@
 	<div class="col-xs-6 col-md-4">
   	<p><strong>Username:</strong>
   	<%= @zombie.username %></p>
+  	<p><strong>Favorite hot sauce:</strong>
+  	<%= @zombie.fav_hot_sauce %></p>
   	</div>
   	<div class="col-xs-12 col-md-8">
+  		
   		<%= render 'shared/post_show', zombie:@zombie %>
+  
   	</div>
 </div>

@@ -1,2 +1,6 @@
 <h4>Last Post</h4>
+<% if zombie.posts.count >=1 %>
 <p><%=zombie.posts.last.content%></p>
+<% else %>
+<p>You haven't posted anything!</p>
+<% end %>

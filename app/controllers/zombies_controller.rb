@@ -9,10 +9,10 @@ class ZombiesController < ApplicationController
 
 	def create
 		# render plain: user_params.inspect
-		@zombie = Zombie.new(user_params)
-		if @user.save
-			session[:user_id] = @user.id
-			redirect_to root_path
+		@zombie = Zombie.new(zombie_params)
+		if @zombie.save
+			session[:zombie_id] = @zombie.id
+			redirect_to @zombie
 		else
 			@errors = @user.errors.full_messages
 			render 'new'
@@ -21,7 +21,7 @@ class ZombiesController < ApplicationController
 	end
 
 	private
-	def user_params
-		params.require(:zombie).permit(:username, :email, :password, :password_confirmation, :image)
+	def zombie_params
+		params.require(:zombie).permit(:username, :email, :password, :password_confirmation, :image, :fav_hot_sauce)
 	end
 end
