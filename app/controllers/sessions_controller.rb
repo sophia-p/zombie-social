@@ -1,13 +1,13 @@
 class SessionsController < ApplicationController
-		def new
+	def new
 	end
 
 	def create
-		@user = User.find_by(email: params[:session][:email])
+		@zombie = Zombie.find_by(username: params[:session][:username])
 
-		if @user && @user.authenticate(params[:session][:password])
-			session[:user_id] = @user.id
-			redirect_to user_path(@user), notice: "You have successfully logged in!"
+		if @zombie && @zombie.authenticate(params[:session][:password])
+			session[:zombie_id] = @zombie.id
+			redirect_to zombie_path(@zombie), notice: "You have successfully logged in!"
 		else
 			flash.now[:error] = "Invalid username or password"
 			render 'new'
@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
 	end
 
 	def destroy
-		session[:user_id] = @current_user = nil
+		session[:zombie_id] = @current_user = nil
 		redirect_to root_url
 	end
 end
