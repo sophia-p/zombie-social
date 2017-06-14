@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
   def logged_in?
   	current_user != nil
   end
+
+  def require_login
+  	redirect '/404' if !current_user
+  end
 end
