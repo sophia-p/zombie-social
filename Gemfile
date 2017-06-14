@@ -30,6 +30,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'paperclip'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
+gem 'chartkick'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
