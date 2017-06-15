@@ -3,6 +3,18 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 svg {
-	max-width: 30%;
+	margin: 20px;
+	max-width: 40%;
 	height: auto;
+	position: absolute;
 }
+
+h1 {
+	margin-left: 39px;
+	position: absolute;
+	z-index: 1;
+	font-size: 250px;
+}
+ body {
+ padding-bottom: 70px;
+ }
