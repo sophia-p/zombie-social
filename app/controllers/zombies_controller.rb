@@ -1,6 +1,11 @@
 class ZombiesController < ApplicationController
 	def show
 		@zombie = Zombie.find_by(id: params[:id])
+		if @zombie
+			render 'show'
+		else
+			redirect_to '/404'
+		end
 	end
 
 	def new
