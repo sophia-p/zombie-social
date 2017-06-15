@@ -1,11 +1,14 @@
 class ZombiesController < ApplicationController
 	def show
+		require_login
 		@zombie = Zombie.find_by(id: params[:id])
-		if @zombie
-			render 'show'
-		else
-			redirect_to '/404'
-		end
+		# if @zombie && current_user
+		# 	render 'show'
+		# elsif @zombie && !current_user
+		# 	redirect_to 'sessons#new'
+		# else
+		# 	redirect_to '/404'
+		# end
 	end
 
 	def new

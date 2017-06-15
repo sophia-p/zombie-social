@@ -11,6 +11,6 @@ class ApplicationController < ActionController::Base
   end
 
   def require_login
-  	redirect '/404' if !current_user
+  	redirect_to new_session_path if !current_user
   end
 end

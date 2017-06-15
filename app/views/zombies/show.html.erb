@@ -1,26 +1,20 @@
-
+<div class="container">
 <div class="row">
-	<div class="col-xs-6 col-md-4">
-  <% if @zombie.image %>
-	<%= image_tag @zombie.image.url, class:"img-thumbnail" %>
-  <% end %>
-	</div>
-	<div class="col-xs-12 col-md-8">
-		<%= render 'shared/post_new'%>
-	</div>
-	
-</div>
+  <div class="col-md-4">
+    <div class="clearfix">
+          <% if @zombie.image %>
+        	<%= image_tag @zombie.image.url, class:"pull-left img-thumbnail img-responsive" %>
+    <% end %>
+    </div>
+  </div>
+    
+          
+    
+  </div>
 
-<div class="row profile">
-	<div class="col-xs-6 col-md-4">
-  	<p><strong>Username:</strong>
-  	<%= @zombie.username %></p>
-  	<p><strong>Favorite hot sauce:</strong>
-  	<%= @zombie.fav_hot_sauce %></p>
-  	</div>
-  	<div class="col-xs-12 col-md-8">
-  		
-  		<%= render 'shared/post_show', zombie:@zombie %>
+  <div class="pull-right">
+  		<%= render 'shared/post_new'%>
+  </div>	
+ </div>
   
-  	</div>
 </div>
