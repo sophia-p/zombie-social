@@ -1,4 +1,4 @@
 class Post < ApplicationRecord
 	belongs_to :zombie
-	validates :content, :zombie, presence: true
+	validates :content, :zombie_id, presence: true
 end

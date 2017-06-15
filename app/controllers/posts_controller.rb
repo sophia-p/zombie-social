@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-	before_action :find_post, only: [:find, :update, :destroy]
+	before_action :find_post, only: [:show, :update, :destroy]
 	def index
 		@posts = Post.all.order("created_at DESC")
 	end
@@ -12,12 +12,13 @@ class PostsController < ApplicationController
 	end
 
 	def create
-		@zombie = current_user
+		
 		@post = Post.new(post_params)
-		@post.zombie_id = @zombie.id
+		@post.zombie_id = current_user.id
 		if @post.save
 			redirect_to @zombie
 		else
+			@errors = @post.errors
 			render 'new'
 		end
 	end
@@ -32,6 +33,7 @@ class PostsController < ApplicationController
 
 	def destroy
 		@post.destroy
+		redirect_to root_path
 	end
 
 	private
