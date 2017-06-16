@@ -12,7 +12,7 @@ class PostsController < ApplicationController
 	end
 
 	def create
-		
+		@zombie = current_user
 		@post = Post.new(post_params)
 		@post.zombie_id = current_user.id
 		if @post.save
