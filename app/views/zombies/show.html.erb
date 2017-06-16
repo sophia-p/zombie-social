@@ -1,20 +1,15 @@
-<div class="container">
-<div class="row">
-  <div class="col-md-4">
-    <div class="clearfix">
-          <% if @zombie.image %>
-        	<%= image_tag @zombie.image.url, class:"pull-left img-thumbnail img-responsive" %>
-    <% end %>
-    </div>
-  </div>
+<div class="col-lg-6 col-sm-6">
+  <div class="header-board">
+    <% if @zombie.image %>
+      <%= image_tag @zombie.image.url(:medium), class:"img-thumbnail img-responsive" %>
+      <% end %>
     
-          
-    
+   
   </div>
 
-  <div class="pull-right">
-  		<%= render 'shared/post_new'%>
-  </div>	
- </div>
+  <div class="well">
+    <%= render 'shared/post_new'%>
+    
+  </div>
   
 </div>
