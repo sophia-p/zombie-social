@@ -2,17 +2,15 @@
 <h1 class="container"></h1>
 
 <div col col-md-8>
-<table class="newsfeed table table-condensed table-responsive">
-<% @posts.each do |post| %>
-	<tbody>
-		<tr>
-			
-			<td><%= post.zombie.username%></td>
-			<td><%= post.content %></td>
-		</tr>
-	</tbody>
-<%end%>
-</table>
+<ul>
+<% @activities.each do |activity| %>
+
+  <%if activity.trackable_type == "Post"%>
+		<%= " posted " + activity.trackable.content %>
+<% end %>
+
+<%end %>
+</ul>
 </div>
 
 <div col-6 col-sm-4>
