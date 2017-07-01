@@ -6,17 +6,19 @@
 		<% @activities.each do |activity| %>
 
 		  <%if activity.trackable_type == "Post"%>
-			<li class="list-group-item"><%= activity.trackable.zombie.username + " posted " %></li>
-		<li class="list-group-item">
-		<div class="media">
-			<div class="media-left media-middle">
-				<%= image_tag activity.trackable.zombie.image.url(:thumb), class:"profile-img media-object", alt:"profile-picture" %>
+			<li class="list-group-item">
+			<%=time_ago_in_words(activity.created_at)%>
+			<%= activity.trackable.zombie.username + " posted " %></li>
+			<li class="list-group-item media-li">
+			<div class="media">
+				<div class="media-left media-middle">
+					<%= image_tag activity.trackable.zombie.image.url(:thumb), class:"profile-img media-object", alt:"profile-picture" %>
+				</div>
+				<div class="media-body">
+					<p class="media-heading post-content"><%= activity.trackable.content %></p>
+				</div>
 			</div>
-			<div class="media-body">
-				<p class="media-heading post-content"><%= activity.trackable.content %></p>
-			</div>
-		</div>
-		</li>
+			</li>
 			<% end %>
 
 		<%end %>
