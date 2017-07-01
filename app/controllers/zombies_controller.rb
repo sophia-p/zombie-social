@@ -2,6 +2,8 @@ class ZombiesController < ApplicationController
 	def show
 		require_login
 		@zombie = Zombie.find_by(id: params[:id])
+		@activities = PublicActivity::Activity.order(created_at: :desc)
+		@posts = @zombie.posts
 		# if @zombie && current_user
 		# 	render 'show'
 		# elsif @zombie && !current_user
