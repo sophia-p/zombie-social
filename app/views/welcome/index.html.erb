@@ -1,17 +1,28 @@
 
-<h1 class="container"></h1>
+<div class="container">
 
-<div col col-md-8>
-<ul>
-<% @activities.each do |activity| %>
+	<div col col-md-8>
+		<ul class="list-group">
+		<% @activities.each do |activity| %>
 
-  <%if activity.trackable_type == "Post"%>
-  <li><%= image_tag activity.trackable.zombie.image.url(:thumb), class:"profile-img" %>
-		<%= activity.trackable.zombie.username + " posted " + activity.trackable.content %></li>
-<% end %>
+		  <%if activity.trackable_type == "Post"%>
+			<li class="list-group-item"><%= activity.trackable.zombie.username + " posted " %></li>
+		<li class="list-group-item">
+		<div class="media">
+			<div class="media-left media-middle">
+				<%= image_tag activity.trackable.zombie.image.url(:thumb), class:"profile-img media-object", alt:"profile-picture" %>
+			</div>
+			<div class="media-body">
+				<p class="media-heading post-content"><%= activity.trackable.content %></p>
+			</div>
+		</div>
+		</li>
+			<% end %>
 
-<%end %>
-</ul>
+		<%end %>
+		</ul>
+	</div>
+
 </div>
 
 <div col-6 col-sm-4>
