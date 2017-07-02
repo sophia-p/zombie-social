@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+ul {
+	width: 75%;
+}
+
 li.media-li{
 	height: 80px;
 }
@@ -16,4 +20,6 @@ li.media-li{
 	display: inline;
 	margin-left: 50px;
 }
+
+
 
