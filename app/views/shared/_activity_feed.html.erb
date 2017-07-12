@@ -1,4 +1,5 @@
-
+		<ul class="list-group">
+		<% @activities.each do |activity| %>
 			<li class="list-group-item">
 			<%=time_ago_in_words(activity.created_at)%> ago
 			<%= activity.trackable.zombie.username + " posted " %></li>
@@ -12,6 +13,7 @@
 				</div>
 			</div>
 			</li>
-		
+		<% end %>
+		</ul>
 
 		

@@ -7,19 +7,15 @@
       <%= image_tag @zombie.image.url(:medium), class:"img-thumbnail img-responsive" %>
       <% end %> 
   
-    </div>
-
+    </div> <!-- end header board -->
    
-  </div>
+  </div> <!-- end profile column -->
 
 </div>
-<div class="col-lg-6 col-sm-6">
-  <div>
-  <ul class="list-group">
-    <% @posts.each do |post| %>
-    <li class="list-group-item"><%=post.content%></li>
-    <% end %>
-  </ul>
+<div class="row">
+  <div class=" col-sm-6">
+
+      <%= render 'shared/activity_feed', locals: {zombie: @zombie, activities: @activities} %>
   </div>
 </div>
   <div class="well">
