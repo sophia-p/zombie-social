@@ -1,11 +1,5 @@
-
-<div class="container">
-
-	<div col col-md-8>
 		<ul class="list-group">
 		<% @activities.each do |activity| %>
-
-		  
 			<li class="list-group-item">
 			<%=time_ago_in_words(activity.created_at)%> ago
 			<%= activity.trackable.zombie.username + " posted " %></li>
@@ -19,24 +13,7 @@
 				</div>
 			</div>
 			</li>
-			<% end %>
+		<% end %>
+		</ul>
 
 		
-		</ul>
- 		
-	</div>
-	<!-- New post partial-->	
-
-		<div class="well col col-md-8">
-    		<%= render 'shared/post_new'%>
-    	</div>
-</div>
-
-
-
-
-
-<div col-6 col-sm-4>
-
-<%= pie_chart @zombies.group(:fav_hot_sauce).count %>
-</div>

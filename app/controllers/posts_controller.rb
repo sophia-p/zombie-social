@@ -16,7 +16,7 @@ class PostsController < ApplicationController
 		@post = Post.new(post_params)
 		@post.zombie_id = current_user.id
 		if @post.save
-			redirect_to @zombie
+			redirect_to URI(request.referrer).path
 		else
 			@errors = @post.errors
 			render 'new'

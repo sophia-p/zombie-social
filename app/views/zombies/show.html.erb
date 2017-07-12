@@ -1,34 +1,27 @@
+<div class="row">
 <div class="col-lg-6 col-sm-6">
-  <div class="header-board">
+  <div class="profile-column">
+    <div class="header-board">
+
     <% if @zombie.image %>
       <%= image_tag @zombie.image.url(:medium), class:"img-thumbnail img-responsive" %>
-      <% end %>
- 
+      <% end %> 
   
+    </div> <!-- end header board -->
+   
+  </div> <!-- end profile column -->
+
+</div>
+<div class="row">
+  <div class=" col-sm-6">
+
+      <%= render 'shared/activity_feed', locals: {zombie: @zombie, activities: @activities} %>
   </div>
-   <div class="name-board">
-    <ul class="list-group profile-list">
-      <li class="list-group-item">
-      <table class="table">
-        <tr>
-          <td>Username: </td>
-          <td><%=@zombie.username%></td>
-        </tr>
-      </table>
-      </li>
-      <li class="list-group-item">
-      <table class="table">
-        <tr>
-          <td>Favorite hot sauce: </td>
-          <td><%=@zombie.fav_hot_sauce%></td>
-        </tr>
-      </table>
-      </li>
-    </ul>
-    </div>
+</div>
   <div class="well">
     <%= render 'shared/post_new'%>
     
   </div>
+
   
 </div>

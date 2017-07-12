@@ -1,4 +1,6 @@
 class Zombie < ApplicationRecord
+	include PublicActivity::Model
+	tracked
 	has_secure_password
 	has_many :posts
 	validates :email, :username, :fav_hot_sauce, presence: true

@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   	@current_user ||= Zombie.find_by(id: session[:zombie_id])
   end
 
+
   def logged_in?
   	current_user != nil
   end
