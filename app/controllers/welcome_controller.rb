@@ -6,7 +6,8 @@ class WelcomeController < ApplicationController
 		@activities = PublicActivity::Activity.order(created_at: :desc)
 		
 		else
-			redirect_to :controller => 'sessions', :action => 'new'
+			flash[:notice] = "You must be logged in to see that."
+			redirect_to :controller => 'sessions', :action => 'new', :alert=>"You must be logged in to see that."
  
 		end
 	end
