@@ -8,7 +8,11 @@ class PostsController < ApplicationController
 	end
 
 	def new
+		if current_user
 		@post = Post.new
+		else
+			redirect_to :controller => 'sessions', :action => 'new'
+		end
 	end
 
 	def create
